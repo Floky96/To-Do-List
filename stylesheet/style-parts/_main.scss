@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    font-family: 'Caveat', cursive;
+}
+
+$g-tinted: rgba(161, 255, 189, 1);
+$g-base: rgba(123, 232, 128, 1);
+$g-light: rgba(175, 255, 147, 1);
+$g-olive: rgba(184, 232, 123, 1);
+$y-pastel: rgba(242, 255, 144, 1);
+$gray-dark: transparent;
+$black-basic: black;
+$gray: gray;
+$gray-light: lightgray;
+$prioColor: transparent;
+
+.hide-element-class {
+    display: none !important;
+}
+

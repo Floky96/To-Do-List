@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--stylesheet-->
+    <link rel="stylesheet" type="text/css" href="./stylesheet/stylesheet.css">
+    <!--javascript-->
+    <script src="./js/javascript.js" defer></script>
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/09ca86ed6f.js" crossorigin="anonymous"></script>
+    <!--browserTab-icon-->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/1261630.jpg">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>ToDo-List</title>
+</head>
+
+<body>
+    <div class="container-content">
+        <nav class="nav-bar" id="nav-bar">
+            <div class="nav-bar-left">
+            </div>
+            <div class="nav-bar-right">
+            </div>
+        </nav>
+        <div class="indicator-nav">
+        </div>
+        <div class="container-tabs" id="container-tabs">
+            <div class="title">
+                <p>ToDo List</p>
+                <div class="create-tab-btn" id="create-tab-btn"><i class="fa-regular fa-circle-plus"></i></div>
+            </div>
+            <div class="library-tabs" id="library-tabs">
+            </div>
+        </div>
+        <div class="container-cards" id="container-cards">
+            <div class="container-blur-background hide-element-class" id="container-create-tab-ui">
+                <div class="create-tab">
+                    <i class="fa-regular fa-x" id="create-tab-btn-x"></i>
+                    Tab Title
+                    <input type="text" placeholder="'My Project'" class="create-tab-input" id="create-tab-input-title">
+                    <button class="create-tab-btn-create" id="create-tab-btn-create">Create New Tab</button>
+                </div>
+            </div>
+            <div class="container-blur-background hide-element-class" id="container-edit-tab-ui">
+                <div class="create-tab">
+                    <i class="fa-regular fa-x" id="edit-tab-btn-x"></i>
+                    New Tab Title
+                    <input type="text" placeholder="'My Project'" class="create-tab-input" id="edit-tab-input-title">
+                    <button class="create-tab-btn-create" id="edit-tab-btn-confirm">save</button>
+                </div>
+            </div>
+            <div class="container-blur-background hide-element-class" id="container-create-card-ui">
+                <div class="create-card">
+                    Create Task
+                    <i class="fa-regular fa-x" id="create-card-btn-x"></i>
+                    Title
+                    <input class="create-card-input" value="" placeholder="'My Title'" id="create-card-input-title">
+                    Priority
+                    <div class="create-card-input container-prio">
+                        <select name="prio" id="prio-dropdown-list">
+                            <option value="prio-1">Very Low</option>
+                            <option value="prio-2">Low</option>
+                            <option value="prio-3">Medium</option>
+                            <option value="prio-4">High</option>
+                            <option value="prio-5">Very High</option>
+                        </select>
+                    </div>
+                    Date of task
+                    <input type="date" class="create-card-input container-create-date" id="create-card-input-date">
+                    Task Description
+                    <textarea type="text" placeholder="Example: Buy Milk" class="create-card-task-description" id="create-card-task-description"></textarea>
+                    <span class="create-card-create-task_withToggle">
+                        <p class="create-card-toggle-checkoption">Checkmark Task</p>
+                        <label class="container-checkBox" id="test1">
+                            <input type="checkbox" id="create-card-checkmark">
+                            <span class="checkmark" id="test2"></span>
+                        </label>
+                    </span>
+                    <button class="create-card-btn-create" id="create-card-btn-create">Create Task</button>
+                </div>
+            </div>
+            <div class="container-blur-background hide-element-class" id="container-edit-card-ui">
+                <div class="create-card">
+                    Edit Task
+                    <i class="fa-regular fa-x" id="edit-card-btn-x"></i>
+                    Title
+                    <input class="create-card-input" value="" placeholder="'My Title'" id="edit-card-input-title">
+                    Priority
+                    <div class="create-card-input container-prio">
+                        <select name="prio" id="prio-dropdown-list-edit">
+                            <option value="prio-1">Very Low</option>
+                            <option value="prio-2">Low</option>
+                            <option value="prio-3">Medium</option>
+                            <option value="prio-4">High</option>
+                            <option value="prio-5">Very High</option>
+                        </select>
+                    </div>
+                    Date of task
+                    <input type="date" class="create-card-input container-create-date" id="edit-card-input-date">
+                    Task Description
+                    <input type="text" placeholder="Example: Buy Milk" class="create-card-task-description" id="edit-card-task-description">
+                    <button class="create-card-btn-create" id="edit-card-btn-create">Save Changes</button>
+                </div>
+            </div>
+            <button class="create-card-btn hide-element-class" id="create-card-btn"><i
+                    class="fa-regular fa-circle-plus"></i></button>
+            <div class="library-cards" id="library-cards">
+            </div>
+        </div>
+        <footer class="footer" id="footer">
+        </footer>
+    </div>
+</body>
+
+</html>

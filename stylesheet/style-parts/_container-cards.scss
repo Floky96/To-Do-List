@@ -1,0 +1,84 @@
+.container-cards {
+    height: 100%;
+    width: 75%;
+    background-color: $g-olive;
+    position: relative;
+
+    .create-card-btn {
+        height: 4%;
+        width: 4%;
+        position: absolute;
+        left: -2%;
+        top: 50%;
+        cursor: pointer;
+        border: 0;
+        background-color: $gray-dark;
+        border-radius: 44px;
+        padding: 0;
+
+        i {
+            font-size: 2rem;
+            border-radius: 44px;
+            border: 0;
+            background-color: $g-olive;
+            transition: 75ms ease-in-out;
+            margin-top: 10%;
+
+            &:hover {
+                transition: 100ms ease-in-out;
+                transform: scale(1.15);
+                box-shadow: -.3px -.3px 4px rgba(0, 0, 0, .8);
+                cursor: pointer;
+
+                &:active {
+                    transition: 100ms ease-in-out;
+                    transform: scale(1);
+                    box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+                }
+            }
+        }
+    }
+
+    .library-cards {
+        height: 85%;
+        width: 94%;
+        padding: 3% 3% 3% 3%;
+        margin-top: 2%;
+        background-color: $g-olive;
+        word-break: break-word;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0;
+        grid-template-areas:
+            ". . ."
+            ". . ."
+            ". . .";
+
+
+        .prio-1 {
+            background-color: green;
+            box-sizing: border-box;
+        }
+
+        .prio-2 {
+            background-color: greenyellow;
+            box-sizing: border-box;
+        }
+
+        .prio-3 {
+            background-color: yellow;
+            box-sizing: border-box;
+        }
+
+        .prio-4 {
+            background-color: orange;
+            box-sizing: border-box;
+        }
+
+        .prio-5 {
+            background-color: orangered;
+            box-sizing: border-box;
+        }
+    }
+}

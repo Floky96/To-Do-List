@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+
+
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--stylesheet-->
+    <link rel="stylesheet" type="text/css" href="./stylesheet/stylesheet.css">
+    <!--javascript-->
+    <script src="./js/javascript.js" defer></script>
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/09ca86ed6f.js" crossorigin="anonymous"></script>
+    <!--browserTab-icon-->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/1261630.jpg">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>ToDo-List</title>
+</head>
+
+<body>
+    <nav class="nav-bar" id="nav-bar">
+        <div class="nav-bar-left">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+        </div>
+        <div class="nav-bar-right">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+        </div>
+    </nav>
+    <div class="indicator-nav">
+    </div>
+    <div class="container-content">
+        <div class="container-tabs" id="container-tabs">
+            <div class="title">
+                <p>ToDo List</p>
+                <button class="create-tab-btn" id="create-tab-btn">+</button>
+            </div>
+            <div class="library-tabs" id="library-tabs">
+                <div class="created-tab">
+                    <p>Test Tab</p>
+                    <div class="created-tab-options">
+                        <i class="fa-solid fa-pencil"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-cards" id="container-cards">
+
+            <div class="container-blur-background hide-element-class" id="container-create-tab-ui">
+                <div class="create-tab">
+                    <i class="fa-regular fa-x" id="create-tab-btn-x"></i>
+                    Title
+                    <input type="text" class="create-tab-input" id="create-tab-input-title">
+                    <button class="create-tab-btn-create" id="create-tab-btn-create">Create New Tab</button>
+                </div>
+            </div>
+            <div class="container-blur-background hide-element-class" id="container-create-card-ui">
+                <div class="create-card">
+                    <i class="fa-regular fa-x" id="create-card-btn-x"></i>
+                    Title
+                    <input class="create-card-input" id="create-card-input-title">
+                    Importance
+                    <input class="create-card-input" id="create-card-input-importance">
+                    Date of task
+                    <input type="date" class="create-card-input" id="create-card-input-date">
+                    <button class="create-card-btn" id="create-card-btn">Create Task</button>
+                </div>
+            </div>
+            <button class="create-card-btn"></button>
+            <div class="container-cards-column" id="container-cards-column-first">
+                <div class="created-card">
+                    <div class="created-card-options">
+                        <p>Test Title</p>
+                    </div>
+                    <div class="created-card-content">
+                        <div class="created-card-created-date">
+                            <i class="fa-light fa-calendar-days"></i>
+                            <span class="created-card-picked_date">12.06.2022</span>
+                        </div>
+                        <span class="created-card-created-task_default">
+                            <p>Display text here</p>
+                        </span>
+                        <span class="created-card-created-task_withToggle">
+                            <label class="container-checkBox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p>Display text here</p>
+                        </span>
+                        <div class="container-confirm_cancel-edit hide-element-class">
+                            <i class="fa-regular fa-check"></i>
+                            <i class="fa-regular fa-x"></i>
+                        </div>
+                    </div>
+                    <div class="created-card-edit_save">
+                        <span>
+                            <i class="fa-regular fa-message-plus"></i>
+                            <i class="fa-regular fa-message-check"></i>
+                        </span>
+                        <span>
+                            <i class="fa-regular fa-pencil"></i>
+                            <i class="fa-regular fa-floppy-disk"></i>
+                            <i class="fa-regular fa-trash"></i>
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="container-cards-column">
+
+            </div>
+            <div class="container-cards-column">
+
+            </div>
+            <div class="container-cards-column">
+
+            </div>
+            <div class="container-cards-column">
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <p class="test">Test</p>
+        <p class="test">Test</p>
+        <p class="test">Test</p>
+        <p class="test">Test</p>
+    </footer>
+</body>
+
+</html>

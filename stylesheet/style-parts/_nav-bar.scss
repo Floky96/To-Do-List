@@ -1,0 +1,90 @@
+.nav-bar {
+    position: absolute;
+    top: 0;
+    height: 2%;
+    width: 100vw;
+    background-color: $g-light;
+    border-bottom: solid 1px gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+
+    .nav-bar-right,
+    .nav-bar-left {
+        display: none;
+    }
+
+    &:hover {
+        transition: 250ms;
+        height: 4%;
+
+        .nav-bar-left,
+        .nav-bar-right {
+            display: block;
+            height: 100%;
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+
+    transition: 135ms ease-out;
+    
+    @keyframes indicate {
+        0% {
+            top: 1rem;
+            opacity: 0;
+        }
+        
+        3% {
+            opacity: 1;
+        }
+        
+        5% {
+            top: 1.3rem;
+            opacity: 1;
+        }
+    
+        10% {
+            top: 1rem;
+        }
+        
+        15% {
+            top: 1.3rem;
+            opacity: 1;
+        }
+        
+        17% {
+            opacity: 1;
+        }
+        
+        20% {
+            top: 1rem;
+            opacity: 0;
+        }
+        
+        60% {
+            top: 0px;
+        }
+        
+        100% {
+            top: 0px;
+        }
+    }
+}
+
+.indicator-nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 1rem;
+    width: 2rem;
+    animation: indicate 11s infinite ease-in-out;
+    background-image: url(/img/da.png);
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+}
+

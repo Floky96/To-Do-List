@@ -1,0 +1,52 @@
+<div class="created-card">
+                    <div class="created-card-options">
+                        <p>Test Title</p>
+                    </div>
+                    <div class="created-card-content">
+                        <div class="created-card-created-date">
+                            <i class="fa-light fa-calendar-days"></i>
+                            <span class="created-card-picked_date">12.06.2022</span>
+                        </div>
+                        <span class="created-card-created-task_default">
+                            <p>Display text here</p>
+                        </span>
+                        <span class="created-card-created-task_withToggle">
+                            <label class="container-checkBox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p>Display text here</p>
+                        </span>
+                        <div class="container-confirm_cancel-edit hide-element-class">
+                            <i class="fa-regular fa-check"></i>
+                            <i class="fa-regular fa-x"></i>
+                        </div>
+                    </div>
+                    <div class="created-card-edit_save">
+                        <span>
+                            <i class="fa-regular fa-message-plus"></i>
+                            <i class="fa-regular fa-message-check"></i>
+                        </span>
+                        <span>
+                            <i class="fa-regular fa-pencil"></i>
+                            <i class="fa-regular fa-floppy-disk"></i>
+                            <i class="fa-regular fa-trash"></i>
+
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+
+<span class="created-card-created-task_default">
+                            <p>Display text here</p>
+                        </span>
+                        <span class="created-card-created-task_withToggle">
+                            <label class="container-checkBox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p>Display text here</p>
+                        </span>

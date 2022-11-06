@@ -1,0 +1,335 @@
+'use strict'
+
+class MasterClass {
+
+    constructor() {
+        this.tabLibrary = [];
+        this.cardLibrary = [];
+        this.dummy = [];
+    }
+
+    //------------------------Helper Fucntions
+
+    toggleTabCreationUi = () => {
+        const target = document.getElementById("container-create-tab-ui");
+        target.classList.remove('hide-element-class');
+        const cancelBtn = document.getElementById("create-tab-btn-x");
+        cancelBtn.addEventListener("click", this.closeTabContainer);
+        const createBtn = document.getElementById("create-tab-btn-create");
+        createBtn.addEventListener("click", this.createTab);
+    }
+
+    closeTabContainer = () => {
+        const clearInput = document.getElementById("create-tab-input-title");
+        clearInput.value = "";
+        const target = document.getElementById("container-create-tab-ui");
+        target.classList.add('hide-element-class');
+    }
+
+    hideEditTabUi = () => {
+        const backgroundBlur = document.getElementById("container-edit-tab-ui");
+        backgroundBlur.classList.add('hide-element-class');
+    }
+
+    confirmNewTabTitle = () => {
+        const newTitle = (document.getElementById("edit-tab-input-title")).value;
+        let target = document.getElementById(this.dummy);
+        target.textContent = newTitle;
+        this.dummy = [];
+        const backgroundBlur = document.getElementById("container-edit-tab-ui");
+        backgroundBlur.classList.add('hide-element-class');
+    }
+
+    toggleCardCreationUi = () => {
+        const target = document.getElementById("container-create-card-ui");
+        target.classList.remove('hide-element-class');
+        const cancelBtn = document.getElementById("create-card-btn-x");
+        cancelBtn.addEventListener("click", this.closeCardContainer);
+        const createBtn = document.getElementById("create-card-btn-create");
+        createBtn.addEventListener("click", this.createCard);
+    }
+
+    closeCardContainer = () => {
+        let toClear = document.getElementById("create-card-input-title");
+        toClear.value !== null ? toClear.value = "" : toClear.value = "no-imput";
+        toClear = document.getElementById("prio-dropdown-list");
+        toClear.value !== null ? toClear.value = "" : toClear.value = "no-imput";
+        toClear = document.getElementById("create-card-input-date");
+        toClear.value !== null ? toClear.value = "" : toClear.value = "no-imput";
+        toClear.valule = "";
+
+        const target = document.getElementById("container-create-card-ui");
+        target.classList.add('hide-element-class');
+    }
+
+    createHtmlElement = (elementType, addClass, addId) => {
+        const newElement = document.createElement(elementType);
+        addClass !== 0 ? newElement.classList.add(addClass) : newElement.classList.add("noClass");
+        addId !== 0 ? newElement.id = addId : newElement.id = "noId";
+        return newElement;
+    }
+
+    appendNewElementANDoptionalText = (targetedParentId, element, addTextContent) => {
+        const target = document.getElementById(targetedParentId);
+        target.appendChild(element);
+        addTextContent !== 0 ? element.textContent = addTextContent : element.textContent = "";
+    }
+
+    findActiveTab = () => {
+        let parentTab = "";
+        this.tabLibrary.forEach(element => {
+            element.active == true ? parentTab = element : null;
+        });
+        return parentTab;
+    }
+
+    unselectTab = () => {
+        this.tabLibrary.forEach(element => {
+            element.active = false;
+        });
+    }
+
+    clearCardLibraryHTML = () => {
+        document.getElementById("library-cards").innerHTML = "";
+    }
+
+    displayActiveTabCards = () => {
+        const cardLibrary = document.getElementById("library-cards");
+        let cardContent = [];
+        this.cardLibrary.forEach(element => {
+            element.parentTab.active == true ? cardContent.push(element.cardContent) : null;
+        });
+
+        cardContent.forEach(element => {
+            cardLibrary.appendChild(element);
+        });
+    }
+
+    switchActiveTab = (event) => {
+        let target = event.target;
+        if ((target.parentElement).classList == "created-tab-options") { return };
+        target = (target.parentElement).id;
+        this.clearCardLibraryHTML();
+
+        this.tabLibrary.forEach(element => {
+            element.id == target ? element.active = true : element.active = false;
+        });
+
+        this.displayActiveTabCards();
+    }
+
+    deleteTab = (event) => {
+        let target = (event.target).parentElement.parentElement;
+        target.remove();
+    }
+
+    editTab = (event) => {
+        let target = (event.target).parentElement.parentElement.firstChild.id;
+        const backgroundBlur = document.getElementById("container-edit-tab-ui");
+        const cancelBtn = document.getElementById("edit-tab-btn-x");
+        const confirm = document.getElementById("edit-tab-btn-confirm");
+        this.dummy.push(target);
+        backgroundBlur.classList.remove('hide-element-class');
+        cancelBtn.addEventListener("click", this.hideEditTabUi);
+        confirm.addEventListener("click", this.confirmNewTabTitle);
+    }
+
+    //-------------------------Create TAB
+
+    createTab = () => {
+
+        this.clearCardLibraryHTML();
+
+        const userInputTitle = document.getElementById("create-tab-input-title");
+        const createBtn = document.getElementById("container-create-tab-ui");
+        let parentId = document.getElementById("library-tabs");
+        let count = 0;
+        this.tabLibrary.forEach(element => {
+            count++
+        });
+        parentId = "library-tabs";
+        let newChildId = "created-tab-" + count;
+        let tabNumber = "created-tab-" + count;
+
+        let newElement = this.createHtmlElement('div', 'created-tab', newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+        newChildId = "created-tab-paragraph-" + count;
+
+        newElement = this.createHtmlElement('p', 0, newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, String(userInputTitle.value));
+        parentId = "created-tab-" + count;
+        newChildId = "created-tab-div-" + count;
+
+        newElement = this.createHtmlElement('div', 'created-tab-options', newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+        newChildId = "editTabBtn-" + count;
+
+        newElement = this.createHtmlElement('i', 'fa-solid', 0);
+        newElement.classList.add("fa-check");
+        newElement.classList.add('hide-element-class');
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        newChildId = "confirmTabEditBtn" + count;
+
+        newElement = this.createHtmlElement('i', 'fa-solid', 0);
+        newElement.classList.add("fa-x");
+        newElement.classList.add('hide-element-class');
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        newChildId = "editTabBtn-" + count;
+
+        newElement = this.createHtmlElement('i', 'fa-solid', newChildId);
+        newElement.classList.add("fa-pencil");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        let editTab = document.getElementById(newChildId);
+        editTab.addEventListener("click", this.editTab);
+        newChildId = "deleteTabBtn-" + count;
+
+        newElement = this.createHtmlElement('i', 'fa-solid', newChildId);
+        newElement.classList.add("fa-trash");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        let deleteTab = document.getElementById(newChildId);
+        deleteTab.addEventListener("click", this.deleteTab);
+
+        createBtn.classList.add('hide-element-class');
+
+        let showAddCardBtn = document.getElementById("create-card-btn");
+        showAddCardBtn.classList.remove("hide-element-class");
+
+        let createdTabSwitchActive = document.getElementById(tabNumber);
+        createdTabSwitchActive.addEventListener("click", this.switchActiveTab);
+
+        this.unselectTab()
+
+        let tab = {
+            id: tabNumber,
+            active: true
+        };
+        this.tabLibrary.push(tab);
+        userInputTitle.value = "";
+    }
+
+    //---------------------------Create CARD
+
+    createCard = () => {
+        let userInputTitle = document.getElementById("create-card-input-title");
+        let userInputPrio = document.getElementById("prio-dropdown-list");
+        let userInputDate = document.getElementById("create-card-input-date");
+        let parentId = document.getElementById("library-cards");
+        let count = 0;
+        let parentTab = this.findActiveTab();
+        this.cardLibrary.forEach(element => {
+            count++
+        });
+        parentId = "library-cards";
+        let newChildId = "created-card-" + count;
+        let cardNumber = count;
+
+        let newElement = this.createHtmlElement('div', 'created-card', newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+        newChildId = "created-card-options-" + count;
+        newElement = this.createHtmlElement('div', "created-card-options", newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('p', 0, 0);
+        newElement.classList.add(userInputPrio.value);
+        let catchNoTitle = userInputTitle.value;
+        catchNoTitle == "" ? catchNoTitle = "My Task" : null;
+        catchNoTitle == "Your Title" ? catchNoTitle = "My Task" : null;
+        this.appendNewElementANDoptionalText(parentId, newElement, catchNoTitle);
+        parentId = "created-card-" + cardNumber;
+        newChildId = "created-card-content-" + count;
+
+        newElement = this.createHtmlElement('div', "created-card-content", newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+        newChildId = "created-card-created-date-" + count;
+
+        newElement = this.createHtmlElement('div', "created-card-created-date", newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+        if (userInputDate.value !== "") {
+            newElement = this.createHtmlElement('i', 'fa-light', 0);
+            newElement.classList.add("fa-calendar-days");
+            this.appendNewElementANDoptionalText(parentId, newElement, 0);
+            newElement = this.createHtmlElement('span', "created-card-picked_date", 0);
+            this.appendNewElementANDoptionalText(parentId, newElement, userInputDate.value);
+        }
+        parentId = "created-card-" + cardNumber;
+        newChildId = "created-card-edit_save-" + count;
+
+        newElement = this.createHtmlElement('div', "created-card-edit_save", newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+
+        parentId = newChildId;
+        newChildId = "created-card-edit_save-span-" + (count + "a");
+
+        newElement = this.createHtmlElement('span', 0, newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('i', "fa-regular", 0);
+        newElement.classList.add("fa-message-plus");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('i', "fa-regular", 0);
+        newElement.classList.add("fa-message-check");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = "created-card-edit_save-" + count;
+        newChildId = "created-card-edit_save-span-" + (count + "b");
+
+        newElement = this.createHtmlElement('span', 0, newChildId);
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('i', "fa-regular", 0);
+        newElement.classList.add("fa-pencil");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('i', "fa-regular", 0);
+        newElement.classList.add("fa-floppy-disk");
+        newElement.classList.add('hide-element-class');
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+        parentId = newChildId;
+
+        newElement = this.createHtmlElement('i', "fa-regular", 0);
+        newElement.classList.add("fa-trash");
+        this.appendNewElementANDoptionalText(parentId, newElement, 0);
+
+
+        const target = document.getElementById("container-create-card-ui");
+        target.classList.add('hide-element-class');
+
+
+        let cardId = "created-card-" + cardNumber;
+        let cardContent = document.getElementById("created-card-" + cardNumber);
+        let card = {
+            parentTab,
+            cardId,
+            cardContent
+        };
+        this.cardLibrary.push(card);
+
+
+        userInputTitle.value = "Your Title";
+        userInputPrio.value = "prio-1";
+        userInputDate.value = "";
+    }
+
+    //------------------------------Add Eventlisteners to main buttons
+
+    listen = () => {
+        const tabTarget = document.getElementById("create-tab-btn");
+        tabTarget.addEventListener("click", this.toggleTabCreationUi);
+
+        const cardTarget = document.getElementById("create-card-btn");
+        cardTarget.addEventListener("click", this.toggleCardCreationUi);
+    }
+}
+
+let main = new MasterClass();
+main.listen();

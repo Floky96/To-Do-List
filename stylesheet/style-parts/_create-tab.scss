@@ -1,0 +1,62 @@
+.create-tab {
+    position: absolute;
+    height: fit-content;
+    width: 35%;
+    background-color: $y-pastel;
+    top: 40%;
+    left: 32%;
+    z-index: 99;
+    border: 1px solid $black-basic;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 160%;
+    font-weight: bold;
+    padding: 1%;
+    box-shadow: 3px 3px 8px $black-basic;
+
+    .fa-x {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 7px;
+        font-size: 80%;
+        cursor: pointer;
+
+        &:active {
+            transition: 30ms ease-in-out;
+            transform: scale(0.8);
+            box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+        }
+    }
+
+    .create-tab-input {
+        background-color: transparent;
+        height: 2rem;
+        width: 80%;
+        border: 1px solid $black-basic;
+        margin: 15px;
+        border-radius: 4px;
+        box-shadow: $black-basic 1px 1px 3px;
+        text-align: center;
+    }
+
+    .create-tab-btn-create {
+        height: 2rem;
+        width: 7rem;
+        border-radius: 4px;
+        background-color: transparent;
+        border: 1px solid $black-basic;
+        margin-top: 5px;
+        box-shadow: $black-basic 1px 1px 1px;
+        cursor: pointer;
+
+        &:active {
+            transition: 30ms ease-in-out;
+            transform: scale(0.8);
+            box-shadow: $black-basic 0 0 0;
+        }
+    }
+}

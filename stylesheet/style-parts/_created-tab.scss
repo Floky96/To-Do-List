@@ -1,0 +1,81 @@
+.created-tab {
+    box-sizing: border-box;
+    min-height: 5%;
+    width: 100%;
+    background-color: $g-olive;
+    border: 0;
+    border-bottom: 1px solid darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: black;
+    font-family: 'Caveat', cursive;
+    font-size: 150%;
+    position: relative;
+    float: left;
+    transition: 50ms;
+    word-break: break-word;
+
+    p {
+        float: left;
+        width: 100%;
+        height: 100%;
+        line-height: 150%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .fa-trash,
+    .fa-pencil {
+        display: none;
+    }
+
+    &:hover {
+        transform: scale(1.025);
+        border: 1px solid black;
+        font-size: 145%;
+        z-index: 999;
+        transition: 50ms;
+        cursor: pointer;
+
+        p {
+            width: 80%;
+        }
+
+        .created-tab-options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+
+            .fa-trash,
+            .fa-pencil {
+                font-size: 60%;
+                display: block;
+                width: fit-content;
+                margin: 5px;
+                font-size: 65%;
+
+                &:hover {
+                    cursor: pointer;
+                    font-size: 80%;
+                    transition: 50ms ease-in-out;
+
+                    &:active {
+                        font-size: 60%;
+                        transition: 40ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    .delete-tab-btn {
+        right: 2.5%;
+        height: 100%;
+        width: 10%;
+        border: 0;
+        background-color: red;
+        margin: 0;
+    }
+}

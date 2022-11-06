@@ -1,0 +1,159 @@
+.create-card {
+    position: absolute;
+    height: 75%;
+    width: 20%;
+    background-color: $y-pastel;
+    top: 15%;
+    left: 40%;
+    z-index: 9999;
+    border: 1px solid $black-basic;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: 3px 3px 8px $black-basic;
+    padding: 1%;
+    cursor: default;
+    
+    
+    
+    
+    .fa-x {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 7px;
+        font-size: 80%;
+        cursor: pointer;
+    }
+    .create-card-input {
+        background-color: transparent;
+        height: 5%;
+        width: 80%;
+        border: 1px solid $black-basic;
+        margin: 15px;
+        border-radius: 4px;
+        box-shadow: $black-basic 2px 2px 12px;
+    }
+    
+    .container-prio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        select {
+            cursor: pointer;
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            border: 1px solid $black-basic;
+            border-radius: 4px;
+        }
+    }
+
+    .create-card-date {
+        text-align: center;
+    }
+    
+    input {
+        text-align: center;
+    }
+    
+    .create-card-btn-create {
+        height: 7%;
+        width: 6rem;
+        border-radius: 4px;
+        background-color: transparent;
+        border: 1px solid $black-basic;
+        margin-top: 5px;
+        box-shadow: $black-basic 2px 2px 5px;
+        cursor: pointer;
+        &:active {
+            transition: 30ms ease-in-out;
+            transform: scale(0.8);
+            box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+        }
+    }
+    
+    .create-card-task-description {
+        background-color: transparent;
+        min-height: 20%;
+        border: 1px solid $black-basic;
+        margin: 15px;
+        border-radius: 4px;
+        box-shadow: $black-basic 2px 2px 12px;
+        text-align: center;
+        width: 85%;
+    }
+    
+    .create-card-create-task_withToggle {
+        word-wrap: break-word;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        font-size: 28px;
+
+        p {
+            margin: 0 15px 0 0;
+            padding: 3px;
+            height: fit-content;
+            width: 100%;
+        }
+        .container-checkBox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+    
+            input {
+                position: absolute;
+                display: none;
+            }
+        }
+    
+        .checkmark {
+            height: 1rem;
+            width: 1rem;
+            background-color: $y-pastel;
+            border: 1px solid $black-basic;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+        }
+    
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    
+        .container-checkBox input:checked~.checkmark:after {
+            display: block;
+        }
+    
+        .container-checkBox .checkmark:after {
+            top: 2px;
+            left: 5px;
+            width: 5px;
+            height: 6px;
+            width: 3px;
+            border: solid $black-basic;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    
+        .create-card-toggle-checkoption {
+            text-align: center;
+        }
+    }    .create-card-toggle-checkoption {
+        text-align: center;
+        font-size: smaller  ;
+    }
+}
+
